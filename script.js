@@ -80,3 +80,44 @@
 // alert("totalPrice: " + total);
 
 
+
+
+const addBtn = document.getElementById('addStudentBtn');
+const tableBody = document.getElementById('studentTableBody');
+
+const nameInp = document.getElementById('name');
+const emailInp = document.getElementById('email');
+const phoneInp = document.getElementById('phone');
+const enrollInp = document.getElementById('enroll');
+const dateInp = document.getElementById('date');
+
+addBtn.addEventListener('click', () => {
+    const name = nameInp.value;
+    const email = emailInp.value;
+    const phone = phoneInp.value;
+    const enroll = enrollInp.value;
+    const date = dateInp.value;
+
+    if(!name || !email) {
+        alert("Iltimos, ma'lumotlarni to'liq kiriting!");
+        return;
+    }
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td><img src="./img/pexels-photo-2379004 1.png" alt="user"></td>
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>${phone}</td>
+        <td>${enroll}</td>
+        <td>${date}</td>
+        <td class="actions">
+            <i class="fa-solid fa-pen"></i>
+            <i class="fa-solid fa-trash" onclick="this.parentElement.parentElement.remove()"></i>
+        </td>
+    `;
+
+    tableBody.appendChild(row);
+
+    [nameInp, emailInp, phoneInp, enrollInp, dateInp].forEach(inp => inp.value = "");
+});
