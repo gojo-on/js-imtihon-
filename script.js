@@ -98,14 +98,11 @@ addBtn.addEventListener('click', () => {
     const enroll = enrollInp.value;
     const date = dateInp.value;
 
-    if(!name || !email) {
-        alert("Iltimos, ma'lumotlarni to'liq kiriting!");
-        return;
-    }
+   
 
     const row = document.createElement('tr');
     row.innerHTML = `
-        <td><img src="./img/pexels-photo-2379004 1.png" alt="user"></td>
+        <td><img src="./img/user-pic.png" alt="user"></td>
         <td>${name}</td>
         <td>${email}</td>
         <td>${phone}</td>
